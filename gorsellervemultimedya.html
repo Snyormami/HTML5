@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Görsel Galeri & Medya — HTML5 Örnek Sayfa</title>
+  <meta name="description" content="Sadece HTML5 ile hazırlanmış görsel galeri ve medya örneği. img, figure, figcaption, audio, video, source, track, embed, canvas, svg açıklamalarıyla.">
+</head>
+<body>
+  <header>
+    <h1>Görsel Galeri & Medya — HTML5 Örnek</h1>
+    <p>Bu sayfa sadece HTML5 etiketleri ile hazırlanmıştır. Her bölümde ilgili etiketin <strong>ne işe yaradığını</strong>, <em>özelliklerini</em> ve <code>kısa örneğini</code> bulacaksınız.</p>
+    <nav aria-label="Sayfa menüsü">
+      <ul>
+        <li><a href="#galeri">Görsel Galeri</a></li>
+        <li><a href="#img-aciklama">img, src, alt, width, height</a></li>
+        <li><a href="#figure">figure & figcaption</a></li>
+        <li><a href="#medya">Medya (audio & video)</a></li>
+        <li><a href="#source-track">source & track</a></li>
+        <li><a href="#embed">embed</a></li>
+        <li><a href="#canvas-svg">canvas & svg</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <!-- GÖRSEL GALERİ -->
+    <section id="galeri" aria-labelledby="galeri-baslik">
+      <h2 id="galeri-baslik">Görsel Galeri (HTML5)</h2>
+      <p>Her görsel <code>&lt;figure&gt;</code> içinde, açıklaması ise <code>&lt;figcaption&gt;</code> ile verildi. Resimler <code>&lt;img&gt;</code> ile eklenir.</p>
+
+      <!-- Örnek görseller: images/ klasörüne koy -->
+      <figure>
+        <!-- resme tıklayınca büyük dosya açması için link verdik (opsiyonel) -->
+        <a href="images/photo1-large.jpg" title="Tam boy görüntü aç">
+          <img src="images/photo1.jpg" alt="Gün doğumunda dağ manzarası" width="600" height="400">
+        </a>
+        <figcaption>
+          <strong>Dağda Gün Doğumu</strong> — Fotoğrafçı: <em>Ahmet Y.</em> —
+          <time datetime="2024-07-10">10 Temmuz 2024</time>
+        </figcaption>
+      </figure>
+
+      <figure>
+        <a href="images/photo2-large.jpg" title="Tam boy">
+          <img src="images/photo2.jpg" alt="Sahil boyunca yürüyüş yolu" width="600" height="400">
+        </a>
+        <figcaption>
+          <strong>Sahil Yolu</strong> — Fotoğrafçı: <em>Elif K.</em> —
+          <time datetime="2025-03-21">21 Mart 2025</time>
+        </figcaption>
+      </figure>
+
+      <figure>
+        <a href="images/photo3-large.jpg" title="Tam boy">
+          <img src="images/photo3.jpg" alt="Şehir silueti gece ışıkları" width="600" height="400">
+        </a>
+        <figcaption>
+          <strong>Gece Şehir Işıkları</strong> — Fotoğrafçı: <em>Mehmet T.</em> —
+          <time datetime="2023-11-05">5 Kasım 2023</time>
+        </figcaption>
+      </figure>
+
+      <p><small>Not: <code>width</code> ve <code>height</code> öznitelikleri görüntü yüklenmeden önce tarayıcıya yer ayırır; <code>alt</code> erişilebilirlik için önemlidir.</small></p>
+    </section>
+
+    <!-- IMG ÖZELLİKLERİ -->
+    <section id="img-aciklama" aria-labelledby="img-baslik">
+      <h2 id="img-baslik">&lt;img&gt; Etiketi ve Öznitelikleri</h2>
+      <p><code>&lt;img&gt;</code> sayfaya görsel (resim) ekler. Kendisi tek başına kapatma etiketi olmayan, boş bir etikettir (self-closing behaviour): <code>&lt;img src="..." alt="..."&gt;</code></p>
+
+      <h3>Ana öznitelikler</h3>
+      <ul>
+        <li><strong>src</strong> — Görselin yolu (örn: <code>images/photo1.jpg</code>) veya tam URL. Tarayıcı bu adrese gidip resmi indirir.</li>
+        <li><strong>alt</strong> — Alternatif metin. Görsel yüklenmezse veya ekran okuyucu kullanılıyorsa bu metin gösterilir/okunur. <em>Her görselde mutlaka olmalıdır.</em></li>
+        <li><strong>width</strong> / <strong>height</strong> — Piksel (veya CSS ile farklı ölçü) olarak boyut verir; tarayıcıya yer tahsisi sağlar. Doğru oranı korumaya dikkat et.</li>
+        <li><strong>title</strong> — Fareyle üstüne gelindiğinde görünen ek bilgi (opsiyonel).</li>
+      </ul>
+
+      <h3>Kısa örnek</h3>
+      <pre><code>&lt;img src="images/photo1.jpg" alt="Gün doğumunda dağ manzarası" width="600" height="400"&gt;</code></pre>
+
+      <p><small>Erişilebilirlik: <code>alt</code> boş bırakılmamalıdır. Eğer resim yalnızca dekoratifse <code>alt=""</code> olarak bırakılabilir (ekran okuyucular atlar).</small></p>
+    </section>
+
+    <!-- FIGURE & FIGCAPTION -->
+    <section id="figure" aria-labelledby="figure-baslik">
+      <h2 id="figure-baslik">&lt;figure&gt; ve &lt;figcaption&gt;</h2>
+      <p><code>&lt;figure&gt;</code>, görsel, tablo veya kod parçası gibi bir medyayı ve bunun açıklamasını paketlemek için kullanılır. İçinde <code>&lt;figcaption&gt;</code> ile başlık/açıklama verilir.</p>
+
+      <h3>Neden kullanılır?</h3>
+      <ul>
+        <li>Görsel + açıklamayı birlikte semantik şekilde gruplar.</li>
+        <li>Arama motorları ve erişilebilirlik araçları için anlamlıdır.</li>
+      </ul>
+
+      <h3>Örnek</h3>
+      <pre><code>&lt;figure&gt;
+  &lt;img src="images/photo.jpg" alt="..."&gt;
+  &lt;figcaption&gt;Görsel açıklaması &lt;time datetime="2025-10-19"&gt;19 Ekim 2025&lt;/time&gt;&lt;/figcaption&gt;
+&lt;/figure&gt;</code></pre>
+    </section>
+
+    <!-- MEDYA: AUDIO & VIDEO -->
+    <section id="medya" aria-labelledby="medya-baslik">
+      <h2 id="medya-baslik">Medya: &lt;audio&gt; ve &lt;video&gt;</h2>
+      <p>HTML5 ile ses ve video etiketleri tarayıcı tarafından doğrudan oynatılabilir hâle geldi. <strong>controls</strong> özniteliği oynatma kontrollerini gösterir. Birden fazla format için <code>&lt;source&gt;</code> kullanılır.</p>
+
+      <article>
+        <h3>&lt;audio&gt; örneği</h3>
+        <p>Aşağıdaki örnekte birden fazla kaynak tanımlanmıştır; tarayıcı destekleyene kadar sırayı dener.</p>
+        <audio controls>
+          <source src="media/song.mp3" type="audio/mpeg">
+          <source src="media/song.ogg" type="audio/ogg">
+          Tarayıcınız &lt;audio&gt; etiketini desteklemiyor.
+        </audio>
+
+        <h4>&lt;audio&gt; öznitelikleri</h4>
+        <ul>
+          <li><strong>controls</strong> — Oynat/durdur/volum kontrolleri gösterir.</li>
+          <li><strong>autoplay</strong> — Sayfa yüklenince otomatik çal (mobil tarayıcılar genelde kısıtlar).</li>
+          <li><strong>loop</strong> — Bitince tekrar oynatır.</li>
+          <li><strong>muted</strong> — Sessiz başlatır.</li>
+          <li><strong>preload</strong> — Tarayıcıya ön yükleme davranışını belirtir (auto/metadata/none).</li>
+        </ul>
+      </article>
+
+      <article>
+        <h3>&lt;video&gt; örneği</h3>
+        <p>Video için poster (başlangıç görseli) ve alt yazı (track) gösterimi:</p>
+
+        <video controls width="640" poster="media/poster.jpg">
+          <source src="media/clip.mp4" type="video/mp4">
+          <source src="media/clip.webm" type="video/webm">
+          <track src="media/subtitles-tr.vtt" kind="subtitles" srclang="tr" label="Türkçe">
+          Tarayıcınız &lt;video&gt; etiketini desteklemiyor.
+        </video>
+
+        <h4>&lt;video&gt; öznitelikleri</h4>
+        <ul>
+          <li><strong>controls</strong> — Oynatma kontrolleri.</li>
+          <li><strong>autoplay</strong> — Otomatik oynatma (çoğu mobil tarayıcı için ses kapalı gerektirir).</li>
+          <li><strong>loop</strong> — Döngüsel oynatma.</li>
+          <li><strong>muted</strong> — Sesi kapatır (autoplay ile birlikte kullanılırsa işe yarar).</li>
+          <li><strong>poster</strong> — Video başlamadan önce gösterilecek resim (thumbnail).</li>
+          <li><strong>width / height</strong> — Boyutlar (tarayıcıya boş alan sağlar).</li>
+        </ul>
+      </article>
+    </section>
+
+    <!-- SOURCE & TRACK -->
+    <section id="source-track" aria-labelledby="source-track-baslik">
+      <h2 id="source-track-baslik">&lt;source&gt; ve &lt;track&gt; etiketleri</h2>
+
+      <h3>&lt;source&gt;</h3>
+      <p><code>&lt;source&gt;</code>, <code>&lt;audio&gt;</code> veya <code>&lt;video&gt;</code> içinde birden fazla medya kaynağı belirtmek için kullanılır. Tarayıcı ilk desteklediği kaynağı oynatır.</p>
+      <pre><code>&lt;video&gt;
+  &lt;source src="clip.mp4" type="video/mp4"&gt;
+  &lt;source src="clip.webm" type="video/webm"&gt;
+&lt;/video&gt;</code></pre>
+
+      <h3>&lt;track&gt;</h3>
+      <p><code>&lt;track&gt;</code>, video/audio için altyazı, transkript veya açıklama sağlar. Genellikle <code>.vtt</code> (WebVTT) formatı kullanılır.</p>
+      <ul>
+        <li><strong>src</strong> — Altyazı dosyası yolu (örn: <code>subtitles-tr.vtt</code>).</li>
+        <li><strong>kind</strong> — Tür (subtitles, captions, descriptions, chapters, metadata).</li>
+        <li><strong>srclang</strong> — Altyazı dili (örn: "tr").</li>
+        <li><strong>label</strong> — Kullanıcıya görünen altyazı seçeneği adı.</li>
+        <li><strong>default</strong> — Varsayılan olarak seçili altyazı.</li>
+      </ul>
+
+      <pre><code>&lt;track src="subtitles-tr.vtt" kind="subtitles" srclang="tr" label="Türkçe" default&gt;</code></pre>
+    </section>
+
+    <!-- EMBED -->
+    <section id="embed" aria-labelledby="embed-baslik">
+      <h2 id="embed-baslik">&lt;embed&gt; — Harici İçerik Gömme</h2>
+      <p><code>&lt;embed&gt;</code>, sayfaya PDF, Office dosyası veya başka bir gömülü içerik eklemek için kullanılır. Sunucu ve tarayıcı uyumluluğuna bağlı olarak PDF önizlemesi yapar.</p>
+
+      <h3>Örnek</h3>
+      <pre><code>&lt;embed src="docs/example.pdf" type="application/pdf" width="800" height="600"&gt;</code></pre>
+
+      <p>Not: Bazı siteler gömme (embed) erişimine izin vermez; ayrıca güvenlik politikalarını (CSP) göz önünde bulundur.</p>
+    </section>
+
+    <!-- CANVAS & SVG -->
+    <section id="canvas-svg" aria-labelledby="canvas-svg-baslik">
+      <h2 id="canvas-svg-baslik">&lt;canvas&gt; ve &lt;svg&gt; — Grafikler</h2>
+
+      <article>
+        <h3>&lt;canvas&gt;</h3>
+        <p><code>&lt;canvas&gt;</code> pikseller üzerinde çizim yapabileceğiniz bir alan sağlar. Ancak <strong>çizim yapmak için JavaScript</strong> gerekir — bu sayfa sadece HTML olduğu için burada JavaScript yok; yine de etiket gösterilmiştir ve alt metin verildi.</p>
+        <canvas id="canvas-example" width="600" height="200">
+          Tarayıcınız &lt;canvas&gt; etiketini desteklemiyor.
+        </canvas>
+        <pre><code>&lt;canvas id="canvas-example" width="600" height="200"&gt;
+  Tarayıcınız &lt;canvas&gt; etiketini desteklemiyor.
+&lt;/canvas&gt;</code></pre>
+        <p><small>Not: Canvas ile grafik çizimi (ör: context.fillRect, path çizimleri) JavaScript gerektirir.</small></p>
+      </article>
+
+      <article>
+        <h3>&lt;svg&gt;</h3>
+        <p><code>&lt;svg&gt;</code> vektörel grafik eklemeye yarar; yakınlaştırıldığında kalite kaybı olmaz. CSS ve JS ile stil ve animasyon uygulanabilir.</p>
+
+        <!-- Basit inline SVG örneği -->
+        <svg width="300" height="120" role="img" aria-label="Basit svg örneği">
+          <rect x="10" y="10" width="100" height="100" fill="#f0a" stroke="#000" stroke-width="2"></rect>
+          <circle cx="200" cy="60" r="40" fill="#0af" stroke="#000" stroke-width="2"></circle>
+          <text x="10" y="115" font-size="12">SVG: kare ve daire örneği</text>
+        </svg>
+
+        <pre><code>&lt;svg width="300" height="120"&gt;
+  &lt;rect x="10" y="10" width="100" height="100" fill="#f0a" /&gt;
+  &lt;circle cx="200" cy="60" r="40" fill="#0af" /&gt;
+&lt;/svg&gt;</code></pre>
+      </article>
+    </section>
+
+    <!-- KÜÇÜK ÖZET -->
+    <aside>
+      <h2>Hızlı Özet</h2>
+      <ul>
+        <li><strong>&lt;img&gt;</strong> — Görsel ekler. Önemli öznitelikler: <code>src</code>, <code>alt</code>, <code>width</code>, <code>height</code>.</li>
+        <li><strong>&lt;figure&gt;/&lt;figcaption&gt;</strong> — Görsel + açıklama paketler.</li>
+        <li><strong>&lt;audio&gt;/&lt;video&gt;</strong> — Ses/video oynatır. <code>&lt;source&gt;</code> ile alternatif format sun, <code>&lt;track&gt;</code> ile altyazı ekle.</li>
+        <li><strong>&lt;embed&gt;</strong> — Harici dosya önizlemesi (PDF vb.).</li>
+        <li><strong>&lt;canvas&gt;</strong> — Piksel tabanlı çizim alanı (JS ile kullanılır).</li>
+        <li><strong>&lt;svg&gt;</strong> — Vektörel grafik (ikon, logo, şekil).</li>
+      </ul>
+    </aside>
+
+  </main>
+
+  <footer>
+    <p>Tüm öğeler <time datetime="2025-10-19">19 Ekim 2025</time> tarihi itibarıyla HTML5 standartlarına göre örneklendirilmiştir.</p>
+    <p>Not: Gerçek medya dosyalarını (images/, media/ vb.) sayfanın bulunduğu klasöre koymayı unutmayın.</p>
+  </footer>
+</body>
+</html>
